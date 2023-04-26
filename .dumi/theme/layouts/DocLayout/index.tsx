@@ -8,7 +8,6 @@ import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from '
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
-import Footer from '../../slots/Footer';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 import '../../static/style';
@@ -77,7 +76,7 @@ const DocLayout: React.FC = () => {
       return (
         <>
           {outlet}
-          <Footer />
+          {/* <Footer /> */}
         </>
       );
     }

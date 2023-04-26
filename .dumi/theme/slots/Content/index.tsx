@@ -275,39 +275,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           {children}
-          {meta.frontmatter.filename && (
-            <ContributorsList
-              repo="ant-design"
-              owner="ant-design"
-              css={styles.contributorsList}
-              cache
-              fileName={meta.frontmatter.filename}
-              renderItem={(item, loading) =>
-                loading || !item ? (
-                  <AvatarPlaceholder />
-                ) : (
-                  <Tooltip
-                    mouseEnterDelay={0.3}
-                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
-                    key={item.username}
-                  >
-                    <a
-                      href={`https://github.com/${item.username}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Avatar size="small" src={item.url}>
-                        {item.username}
-                      </Avatar>
-                    </a>
-                  </Tooltip>
-                )
-              }
-            />
-          )}
         </article>
         <PrevAndNext />
-        <Footer />
       </Col>
     </DemoContext.Provider>
   );

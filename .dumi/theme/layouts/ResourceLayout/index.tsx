@@ -129,7 +129,6 @@ const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
             <section>{meta.frontmatter.description}</section>
           </div>
           <div css={styles.resourceContent}>{children}</div>
-          <Footer />
         </div>
       </Layout>
     </ConfigProvider>

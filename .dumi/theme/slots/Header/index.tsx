@@ -167,27 +167,27 @@ const Header: React.FC = () => {
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
-        if (
-          // process.env.NODE_ENV === 'production' &&
-          window.location.host !== 'ant-design.antgroup.com' &&
-          shouldOpenAntdMirrorModal()
-        ) {
-          Modal.confirm({
-            title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～',
-            okText: '🚀 立刻前往',
-            cancelText: '不再弹出',
-            closable: true,
-            zIndex: 99999,
-            onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
-              disableAntdMirrorModal();
-            },
-            onCancel() {
-              disableAntdMirrorModal();
-            },
-          });
-        }
+        // if (
+        //   // process.env.NODE_ENV === 'production' &&
+        //   window.location.host !== 'ant-design.antgroup.com' &&
+        //   shouldOpenAntdMirrorModal()
+        // ) {
+        //   Modal.confirm({
+        //     title: '提示',
+        //     content: '内网用户推荐访问国内镜像以获得极速体验～',
+        //     okText: '🚀 立刻前往',
+        //     cancelText: '不再弹出',
+        //     closable: true,
+        //     zIndex: 99999,
+        //     onOk() {
+        //       window.open('https://ant-design.antgroup.com', '_self');
+        //       disableAntdMirrorModal();
+        //     },
+        //     onCancel() {
+        //       disableAntdMirrorModal();
+        //     },
+        //   });
+        // }
       }
     });
     return () => {
@@ -297,44 +297,44 @@ const Header: React.FC = () => {
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
-    <More key="more" {...sharedProps} />,
-    <SwitchBtn
-      key="lang"
-      onClick={onLangChange}
-      value={utils.isZhCN(pathname) ? 1 : 2}
-      label1="中"
-      label2="En"
-      tooltip1="中文 / English"
-      tooltip2="English / 中文"
-    />,
-    <SwitchBtn
-      key="direction"
-      onClick={onDirectionChange}
-      value={direction === 'rtl' ? 2 : 1}
-      label1={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original"
-          alt="direction"
-        />
-      }
-      tooltip1="LTR"
-      label2={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original"
-          alt="LTR"
-        />
-      }
-      tooltip2="RTL"
-      pure
-    />,
-    <a
-      key="github"
-      href="https://github.com/ant-design/ant-design"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
-    </a>,
+    // <More key="more" {...sharedProps} />,
+    // <SwitchBtn
+    //   key="lang"
+    //   onClick={onLangChange}
+    //   value={utils.isZhCN(pathname) ? 1 : 2}
+    //   label1="中"
+    //   label2="En"
+    //   tooltip1="中文 / English"
+    //   tooltip2="English / 中文"
+    // />,
+    // <SwitchBtn
+    //   key="direction"
+    //   onClick={onDirectionChange}
+    //   value={direction === 'rtl' ? 2 : 1}
+    //   label1={
+    //     <img
+    //       src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original"
+    //       alt="direction"
+    //     />
+    //   }
+    //   tooltip1="LTR"
+    //   label2={
+    //     <img
+    //       src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original"
+    //       alt="LTR"
+    //     />
+    //   }
+    //   tooltip2="RTL"
+    //   pure
+    // />,
+    // <a
+    //   key="github"
+    //   href="https://github.com/ant-design/ant-design"
+    //   target="_blank"
+    //   rel="noreferrer"
+    // >
+    //   <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
+    // </a>,
   ];
 
   if (windowWidth < RESPONSIVE_XS) {

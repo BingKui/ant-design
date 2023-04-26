@@ -6,7 +6,6 @@ import debounce from 'lodash/debounce';
 import { Card, Col, Divider, Input, Row, Space, Tag, Typography, Affix } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import type { Component } from './ProComponentsList';
-import proComponentsList from './ProComponentsList';
 import useSiteToken from '../../../hooks/useSiteToken';
 import SiteContext from '../../slots/SiteContext';
 
@@ -128,16 +127,7 @@ const Overview: React.FC = () => {
             coverDark: child.frontmatter.coverDark,
             link: child.link,
           })),
-        }))
-        .concat([
-          {
-            title: locale === 'zh-CN' ? '重型组件' : 'Others',
-            children:
-              locale === 'zh-CN'
-                ? proComponentsList
-                : proComponentsList.map((component) => ({ ...component, subtitle: '' })),
-          },
-        ]),
+        })),
     [data, locale],
   );
   return (

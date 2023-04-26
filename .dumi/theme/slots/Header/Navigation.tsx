@@ -202,66 +202,31 @@ export default ({
       ),
       key: 'components',
     },
-    blogList.length
-      ? {
-          label: (
-            <Link
-              to={utils.getLocalizedPathname(
-                blogList.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))[0].link,
-                isZhCN,
-                search,
-              )}
-            >
-              {locale.blog}
-            </Link>
-          ),
-          key: 'docs/blog',
-        }
-      : null,
-    {
-      label: (
-        <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, search)}>
-          {locale.resources}
-        </Link>
-      ),
-      key: 'docs/resources',
-    },
-    isZhCN &&
-    isClient &&
-    window.location.host !== 'ant-design.antgroup.com' &&
-    window.location.host !== 'ant-design.gitee.io'
-      ? {
-          label: '国内镜像',
-          key: 'mirror',
-          children: [
-            {
-              label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
-              icon: (
-                <img
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'antgroup',
-            },
-            {
-              label: <a href="https://ant-design.gitee.io">Gitee 镜像</a>,
-              icon: (
-                <img
-                  alt="gitee"
-                  src="https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg"
-                  width={16}
-                  style={{ verticalAlign: 'text-bottom' }}
-                />
-              ),
-              key: 'gitee',
-            },
-          ],
-        }
-      : null,
-    ...(additional ?? []),
+    // blogList.length
+    //   ? {
+    //     label: (
+    //       <Link
+    //         to={utils.getLocalizedPathname(
+    //           blogList.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))[0].link,
+    //           isZhCN,
+    //           search,
+    //         )}
+    //       >
+    //         {locale.blog}
+    //       </Link>
+    //     ),
+    //     key: 'docs/blog',
+    //   }
+    //   : null,
+    // {
+    //   label: (
+    //     <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, search)}>
+    //       {locale.resources}
+    //     </Link>
+    //   ),
+    //   key: 'docs/resources',
+    // },
+    // ...(additional ?? []),
   ];
 
   return (
