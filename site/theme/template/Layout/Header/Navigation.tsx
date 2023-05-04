@@ -108,35 +108,35 @@ export default ({
       ),
       key: 'components',
     },
-    {
-      label: (
-        <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, location.query)}>
-          <FormattedMessage id="app.header.menu.resource" />
-        </Link>
-      ),
-      key: 'docs/resources',
-    },
-    showTechUIButton
-      ? {
-          label: (
-            <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-              TechUI
-            </a>
-          ),
-          key: 'tech-ui',
-        }
-      : null,
-    isZhCN && typeof window !== 'undefined' && window.location.host !== '4x-ant-design.antgroup.com'
-      ? {
-          label: (
-            <a href="https://4x-ant-design.antgroup.com" target="__blank" rel="noopener noreferrer">
-              国内镜像
-            </a>
-          ),
-          key: 'mirror',
-        }
-      : null,
-    ...(additional ?? []),
+    // {
+    //   label: (
+    //     <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, location.query)}>
+    //       <FormattedMessage id="app.header.menu.resource" />
+    //     </Link>
+    //   ),
+    //   key: 'docs/resources',
+    // },
+    // showTechUIButton
+    //   ? {
+    //     label: (
+    //       <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
+    //         TechUI
+    //       </a>
+    //     ),
+    //     key: 'tech-ui',
+    //   }
+    //   : null,
+    // isZhCN && typeof window !== 'undefined' && window.location.host !== '4x-ant-design.antgroup.com'
+    //   ? {
+    //     label: (
+    //       <a href="https://4x-ant-design.antgroup.com" target="__blank" rel="noopener noreferrer">
+    //         国内镜像
+    //       </a>
+    //     ),
+    //     key: 'mirror',
+    //   }
+    //   : null,
+    // ...(additional ?? []),
   ];
 
   return (

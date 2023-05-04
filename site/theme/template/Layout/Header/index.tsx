@@ -132,27 +132,27 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = (props) =>
     pingTimer.current = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
         setHeaderState((prev) => ({ ...prev, showTechUIButton: true }));
-        if (
-          process.env.NODE_ENV === 'production' &&
-          shouldOpenAntdMirrorModal() &&
-          window.location.host !== '4x-ant-design.antgroup.com' &&
-          window.location.host.indexOf('surge.sh') === -1
-        ) {
-          Modal.confirm({
-            title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～',
-            okText: '🚀 立刻前往',
-            cancelText: '不再弹出',
-            closable: true,
-            onOk() {
-              window.location.href = 'https://ant-design.antgroup.com';
-              disableAntdMirrorModal();
-            },
-            onCancel() {
-              disableAntdMirrorModal();
-            },
-          });
-        }
+        // if (
+        //   process.env.NODE_ENV === 'production' &&
+        //   shouldOpenAntdMirrorModal() &&
+        //   window.location.host !== '4x-ant-design.antgroup.com' &&
+        //   window.location.host.indexOf('surge.sh') === -1
+        // ) {
+        //   Modal.confirm({
+        //     title: '提示',
+        //     content: '内网用户推荐访问国内镜像以获得极速体验～',
+        //     okText: '🚀 立刻前往',
+        //     cancelText: '不再弹出',
+        //     closable: true,
+        //     onOk() {
+        //       window.location.href = 'https://ant-design.antgroup.com';
+        //       disableAntdMirrorModal();
+        //     },
+        //     onCancel() {
+        //       disableAntdMirrorModal();
+        //     },
+        //   });
+        // }
       }
     });
     return () => {
@@ -209,7 +209,6 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = (props) =>
         const { menuVisible, windowWidth, searching, showTechUIButton } = headerState;
         const docVersions: Record<string, string> = {
           [antdVersion]: antdVersion,
-          ...themeConfig?.docVersions,
         };
         const versionOptions = Object.keys(docVersions).map((version) => (
           <Option value={docVersions[version]} key={version}>
@@ -268,24 +267,6 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = (props) =>
           >
             {versionOptions}
           </Select>,
-          <Button
-            size="small"
-            onClick={onLangChange}
-            className="header-button header-lang-button"
-            key="lang-button"
-          >
-            <FormattedMessage id="app.header.lang" />
-          </Button>,
-          <Button
-            size="small"
-            onClick={onDirectionChange}
-            className="header-button header-direction-button"
-            key="direction-button"
-          >
-            {nextDirectionText}
-          </Button>,
-          <More key="more" {...sharedProps} />,
-          <Github key="github" responsive={responsive} />,
         ];
 
         if (windowWidth < RESPONSIVE_XS) {

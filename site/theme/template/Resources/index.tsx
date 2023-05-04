@@ -101,7 +101,7 @@ function toCardList([, ...items]: ContentUnit[]): ContentUnit[] {
             ],
           ['p', { className: 'resource-card-title' }, titleStr],
           ['p', { className: 'resource-card-description' }, descStr],
-        ].filter(c => c),
+        ].filter((c) => c),
       ];
     }),
   ];
@@ -151,7 +151,7 @@ const Resources = (props: ResourcesProps) => {
         titleRegionClassName="title-region"
       />
 
-      <Footer location={location} />
+      {/* <Footer location={location} /> */}
     </div>
   );
 };

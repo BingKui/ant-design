@@ -26,10 +26,10 @@ function getModuleData(props) {
   const moduleName = /^\/?components/.test(pathname)
     ? 'components'
     : pathname
-        .split('/')
-        .filter(item => item)
-        .slice(0, 2)
-        .join('/');
+      .split('/')
+      .filter(item => item)
+      .slice(0, 2)
+      .join('/');
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
   let data;
   switch (moduleName) {
@@ -250,11 +250,11 @@ class MainContent extends Component {
     const text = isTop
       ? title
       : [
-          <span key="english">{title}</span>,
-          <span className="chinese" key="chinese">
-            {item.subtitle}
-          </span>,
-        ];
+        <span key="english">{title}</span>,
+        <span className="chinese" key="chinese">
+          {item.subtitle}
+        </span>,
+      ];
     const { disabled } = item;
     const url = item.filename.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '').toLowerCase();
 
@@ -381,84 +381,13 @@ class MainContent extends Component {
   renderMainContent({ theme, setIframeTheme }) {
     const { localizedPageData, demos, location } = this.props;
     if (location.pathname.includes('components/overview')) {
-      const type = utils.isZhCN(location.pathname) ? '重型组件' : 'ProComponents';
       return (
         <ComponentOverview
           {...this.props}
           doc={localizedPageData}
           componentsData={getModuleData(this.props)
             .filter(({ meta }) => meta.category === 'Components')
-            .concat([
-              {
-                meta: {
-                  category: 'Components',
-                  cover:
-                    'https://gw.alipayobjects.com/zos/antfincdn/4n5H%24UX%24j/bianzu%2525204.svg',
-                  filename: 'https://procomponents.ant.design/components/layout',
-                  subtitle: '高级布局',
-                  title: 'ProLayout',
-                  type,
-                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
-                },
-              },
-              {
-                meta: {
-                  category: 'Components',
-                  cover: 'https://gw.alipayobjects.com/zos/antfincdn/mStei5BFC/bianzu%2525207.svg',
-                  filename: 'https://procomponents.ant.design/components/form',
-                  subtitle: '高级表单',
-                  title: 'ProForm',
-                  type,
-                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
-                },
-              },
-              {
-                meta: {
-                  category: 'Components',
-                  cover:
-                    'https://gw.alipayobjects.com/zos/antfincdn/AwU0Cv%26Ju/bianzu%2525208.svg',
-                  filename: 'https://procomponents.ant.design/components/table',
-                  subtitle: '高级表格',
-                  title: 'ProTable',
-                  type,
-                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
-                },
-              },
-              {
-                meta: {
-                  category: 'Components',
-                  cover:
-                    'https://gw.alipayobjects.com/zos/antfincdn/H0%26LSYYfh/bianzu%2525209.svg',
-                  filename: 'https://procomponents.ant.design/components/descriptions',
-                  subtitle: '高级定义列表',
-                  title: 'ProDescriptions',
-                  type,
-                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
-                },
-              },
-              {
-                meta: {
-                  category: 'Components',
-                  cover: 'https://gw.alipayobjects.com/zos/antfincdn/uZUmLtne5/bianzu%2525209.svg',
-                  filename: 'https://procomponents.ant.design/components/list',
-                  subtitle: '高级列表',
-                  title: 'ProList',
-                  type,
-                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
-                },
-              },
-              {
-                meta: {
-                  category: 'Components',
-                  cover: 'https://gw.alipayobjects.com/zos/antfincdn/N3eU432oA/bianzu%2525209.svg',
-                  filename: 'https://procomponents.ant.design/components/editable-table',
-                  subtitle: '可编辑表格',
-                  title: 'EditableProTable',
-                  type,
-                  tag: 'https://gw.alipayobjects.com/zos/antfincdn/OG4ajVYzh/bianzu%2525202.svg',
-                },
-              },
-            ])}
+          }
         />
       );
     }
@@ -472,14 +401,14 @@ class MainContent extends Component {
             theme={theme}
             setIframeTheme={setIframeTheme}
           />
-          {this.renderContributors()}
+          {/* {this.renderContributors()} */}
         </>
       );
     }
     return (
       <>
         <Article {...this.props} content={localizedPageData} />
-        {this.renderContributors()}
+        {/* {this.renderContributors()} */}
       </>
     );
   }
@@ -557,7 +486,7 @@ class MainContent extends Component {
               </div>
             )}
             <PrevAndNext prev={prev} next={next} />
-            <Footer location={location} />
+            {/* <Footer location={location} /> */}
           </Col>
         </Row>
       </div>
